@@ -9,7 +9,7 @@ követelményei szerint készült.
 
 ---
 
-## 📊 Adatbázis
+## Adatbázis
 
 - Forrás: https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 - Fájl: `datasets/WineQT.csv`
@@ -61,15 +61,20 @@ Ez a mutató az össz-savasság és az illósav arányát fejezi ki, amely
 - Feature-ek eloszlása és kiugró értékek megjelenítése (boxplot)
 - A neurális háló tanítás és validáció közbeni pontosságának vizualizálása
   epochok mentén
+- Tanítási és validációs veszteség (loss) görbék megjelenítése
+
+Ezek a vizualizációk segítenek a tanulási folyamat, valamint az esetleges
+túlillesztés megfigyelésében.
 
 ---
 
 ## Neurális háló felépítése
 
-A modell egy **Dense-layeres feedforward neurális háló**, amely legalább
-öt rejtett réteget tartalmaz:
+A modell egy **Dense-layeres feedforward neurális háló**, amely
+**hat rejtett réteget** tartalmaz:
 
 - ReLU aktivációjú Dense rétegek
+- Egy további rejtett réteg a modell kifejezőerejének növelése érdekében
 - Dropout rétegek a túlillesztés csökkentésére
 - Sigmoid kimeneti réteg bináris osztályozáshoz
 
@@ -80,10 +85,23 @@ A modell egy **Dense-layeres feedforward neurális háló**, amely legalább
 
 ---
 
+## Modell teljesítményének értékelése
+
+A modell teljesítménye több módon kerül értékelésre:
+
+- Tanító és teszt adathalmazon mért pontosság (accuracy)
+- Tanítási és validációs accuracy és loss görbék
+- **Confusion matrix**, amely megmutatja a helyes és hibás osztályozások számát
+  (true positive, true negative, false positive, false negative)
+
+A confusion matrix segítségével a modell hibáinak típusa részletesen elemezhető.
+
+---
+
 ## Eredmények
 
 - A modell **75% feletti pontosságot** ér el validációs és teszt adathalmazon
-- A tanítás során a tanulási folyamat vizuálisan követhető
+- A tanulási folyamat és a modell teljesítménye vizuálisan is értékelhető
 
 ---
 
@@ -100,7 +118,7 @@ A modell egy **Dense-layeres feedforward neurális háló**, amely legalább
 
 ---
 
-## ▶Futtatás
+## ▶ Futtatás
 
 1. Klónozd a repót
 2. Aktiváld a virtuális környezetet
